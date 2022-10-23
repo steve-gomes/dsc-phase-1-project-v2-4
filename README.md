@@ -7,26 +7,21 @@ Microsoft sees all the big companies creating original video content and they wa
 ### The Data
 
 In the folder `zippedData` are movie datasets from:
+* [IMDB](https://www.imdb.com/) - Database file containing reference data about movies.  We use this to map year&title to genres.
+* [Rotten Tomatoes](https://www.rottentomatoes.com/)  - Flat file containing reference information.  We use this to analyze release scheduling, runtime, and box office sales.
+* [The Numbers](https://www.the-numbers.com/) - Flat file containing information about budget & sales.  We use this to analyze budget as a driver of profit & ROI.
 
-* [Box Office Mojo](https://www.boxofficemojo.com/)
-* [IMDB](https://www.imdb.com/)
-* [Rotten Tomatoes](https://www.rottentomatoes.com/)
-* [TheMovieDB](https://www.themoviedb.org/)
-* [The Numbers](https://www.the-numbers.com/)
+For this analysis I also scraped an additional data set:
+[Minneapolis Fed](https://www.minneapolisfed.org/about-us/monetary-policy/inflation-calculator/consumer-price-index-1800-) - Inflation data, we use to adjust all dollar figures over time from the above 3 sources to normalize to 2022 dollar values.
 
-Because it was collected from various locations, the different files have different formats. Some are compressed CSV (comma-separated values) or TSV (tab-separated values) files that can be opened using spreadsheet software or `pd.read_csv`, while the data from IMDB is located in a SQLite database.
+## Overview
+In launching a studio we seek to maximize profit for any new movie we produce.
+That is to say, we are focussed on sales, net profit, and ROI.
+This means we are less focussed on reviews & ratings.
 
-![movie data erd](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-1-project-v2-4/master/movie_data_erd.jpeg)
-
-Note that the above diagram shows ONLY the IMDB data. You will need to look carefully at the features to figure out how the IMDB data relates to the other provided data files.
-
-It is up to you to decide what data from this to use and how to use it. If you want to make this more challenging, you can scrape websites or make API calls to get additional data. If you are feeling overwhelmed or behind, we recommend you use only the following data files:
-
-* `im.db.zip`
-  * Zipped SQLite database (you will need to unzip then query using SQLite)
-  * `movie_basics` and `movie_ratings` tables are most relevant
-* `bom.movie_gross.csv.gz`
-  * Compressed CSV file (you can open without expanding the file using `pd.read_csv`)
+## Business Understanding
+We need to determine optimal choices for the various inputs that we control as decision makers.
+The inputs we do control -  Budget, Genre, Staffing, Scheduling, Run length, and more
 
 ## Analysis
 
@@ -56,9 +51,16 @@ Runtime is not that correlated with sales, however we can see a typical range of
 * Budget up to 300M per film, as ROI and Profit increases with budget until 300M at which point it drops off
 * Keep movie runtime in the sweet spot of 100-120 minutes length as higher run times do not result in higher sales
 
+### Specific ideas
+* Release a Summer block buster action film in June, with a full $300M budget, roughly 120 minutes runtime
+* Release two Adventure films during the Winter holidays, one each in November & December targeting school children, on the shorter end of the 90-120min recommended range, in the $150-200M budget range
+* The third best release time is February, so release any films that don’t make the holiday cut then
+
 ### Next Steps
 Multi-factor drill downs such as:
-* Optimal budget for Action & Adventure genres individually
+* Optimal budget for each genre
 * Drill into day-of-week and week-of-year time slices
 * Look at how time of year & budget interact
+* Trends - evolution of popularity by year
+* Identifying hit makers in targeted genres
 * Etc
