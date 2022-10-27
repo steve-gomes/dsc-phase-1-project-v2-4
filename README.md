@@ -65,15 +65,17 @@ Multi-factor drill downs such as:
 * Identifying hit makers in targeted genres
 * Etc
 
-.
-├── graphs                   # visuals from notebook
-├── zippedData               # provided input files for project
-├── .canvas
-├── .gitignore
-├── CONTRIBUTING.md
-├── LICENSE.md
-└── README.md
-└── notebook.pdf            # analysis notebook PDF
-└── presentation.key        # project presentation src
-└── presentation.pdf        # project presentation PDF
-└── student.ipynb           # analysis notebook
+### top-level directory layout
+
+    .
+    ├── graphs                   # visuals from notebook
+    ├── zippedData               # provided input files for project
+    ├── .canvas
+    ├── .gitignore
+    ├── CONTRIBUTING.md
+    ├── LICENSE.md
+    ├── README.md
+    ├── notebook.pdf            # analysis notebook PDF
+    ├── presentation.key        # project presentation src
+    ├── presentation.pdf        # project presentation PDF
+    ├── student.ipynb           # analysis notebook
